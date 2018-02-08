@@ -1,8 +1,7 @@
 language: c
 env:
   global:
-   - secure: "AJcOHiXUvMJYMWDFgZzSkLxO3p8t4+U71W4enPPELDTDux1Hm5Cu8sZrEno0Uo23se10heXZlTVcqqyrxMPlcW872tDDj5OP8llgeRxEBvv031ag2wfgkR9z80hwUOxZy7jRr5fMmOsWUXoLX+ia+SCI22d0S0h9c/kRQQs5uZtPaKiVmVcgqN+0x+BETnP1a83G/UoiAZxqFeOAzhjpfQg5SA0j/bvsCSLSq8kS/rMoIDX2uUuFVNJ8R48k7cBy/tT2JfOAP7ZFcoy9EH+H0DhEsFklJ9Cbm5tUwd/SJfStyQd/68qUcVqb749CNKLkCXd2XoV8df2iwTbBK5vYI7RXaB/XAu/kj8UtB7GjeLLkmnkZGo7XowZ7nghHR4xqUW0BYB0CtgeC9lRp5FXvYIkiaoYnMLWqGZWdqvTfpcGwZyPrcncUIi6BA2mH2CdRr0c1XbdIEqptBhvE+YguRfj1ClTVCQhpyYIQ1VuB4C9iD3w6ekuprSG6jP8rOF2yBnDdX3r2XiSSEqMEBM1TmxdVsA6EtaDnRdgt0DQwuImxVzRumMXi81MLU8pEEt8gTE8tfqO4FUwiKp9DLPj450b7eKa6qLbAJHPV//rv4xnnaz8AEsUuEPPPY02RX/mDhlgH963VXXvIfWkylJoA/25iMg4Lh9oOGGeuGZRmfmA="
-
+   - secure: 'AJcOHiXUvMJYMWDFgZzSkLxO3p8t4+U71W4enPPELDTDux1Hm5Cu8sZrEno0Uo23se10heXZlTVcqqyrxMPlcW872tDDj5OP8llgeRxEBvv031ag2wfgkR9z80hwUOxZy7jRr5fMmOsWUXoLX+ia+SCI22d0S0h9c/kRQQs5uZtPaKiVmVcgqN+0x+BETnP1a83G/UoiAZxqFeOAzhjpfQg5SA0j/bvsCSLSq8kS/rMoIDX2uUuFVNJ8R48k7cBy/tT2JfOAP7ZFcoy9EH+H0DhEsFklJ9Cbm5tUwd/SJfStyQd/68qUcVqb749CNKLkCXd2XoV8df2iwTbBK5vYI7RXaB/XAu/kj8UtB7GjeLLkmnkZGo7XowZ7nghHR4xqUW0BYB0CtgeC9lRp5FXvYIkiaoYnMLWqGZWdqvTfpcGwZyPrcncUIi6BA2mH2CdRr0c1XbdIEqptBhvE+YguRfj1ClTVCQhpyYIQ1VuB4C9iD3w6ekuprSG6jP8rOF2yBnDdX3r2XiSSEqMEBM1TmxdVsA6EtaDnRdgt0DQwuImxVzRumMXi81MLU8pEEt8gTE8tfqO4FUwiKp9DLPj450b7eKa6qLbAJHPV//rv4xnnaz8AEsUuEPPPY02RX/mDhlgH963VXXvIfWkylJoA/25iMg4Lh9oOGGeuGZRmfmA='
 
 before_install:
   - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
@@ -13,5 +12,6 @@ addons:
       name: "christianix/buggy"
       description: "Coverity Bug-Test"
     notification_email: martin@christianix.de
+    build_command_prepend:
     build_command: "make buggy"
     branch_pattern: coverity_scan
