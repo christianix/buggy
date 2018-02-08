@@ -1,2 +1,8 @@
 language: c
 script: make buggy
+addons:
+  coverity_scan:
+    project:
+      name: "Buggy code"
+      description: "Bug bounty"
+    build_command:   "make buggy"
