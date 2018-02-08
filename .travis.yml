@@ -1,8 +1,21 @@
 language: c
 script: make buggy
+
+env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "OHNuaWPkDwWafqCsJGjv7WhzVxymqzloHnh8l2YjMi7INAnI04tztrYfdSUx8VcjVyVdjrGQAsepkRMrMWc+0uDj6Q90kJhhUjG2cKE42eRFTPqSpAOTg4w9HUL/Ont49PpWN6s5CfABirVOhMYRTKDzAijTEG/cc/qc4sZFVv/yIv8bOp0YujthjGF0Z25fE/KmDVqKR9ho30sUmLVd5e8TbMFYYMguE4QHkskdpsrCUQKb8AC8witWI7P0E0qVMUfofpaMyH/gBpEDJ2ObeNJ5J3gW99cxFlNXVyMgdKEPL1qbVXhZp6RQBRAfdviMn8QRSPnCk6mU3OQWsDdL6PxeMjmOej5k/Nq2hasmh5RaOsipQqjrZpOB1apeY6VXWIG0eNeUSIJjKxQd0Jw/fb/vt3STKx9pdN37S6PohvO2fxL9mgH/7BNk8gmQP2vwrdO3si6/HtH6e4XPpMl5/ApCthe+enVTh55yLxLSYNW5SymIJ1g5rT9icsrtdbCS7xj9v6ug1q6XID8gHNuOtrhEnl0+Rf5kfk/XRCC7ZgRSFHssGmOeiU3kgz+106JNQpTvsyS0PHoStzDmo6T9EHit5djqYqfTHYqebJOYfCMpvhaE0ZvbEQ+SXmDmkhJ5lO7x85tfNzj7m3dwBmK++0QogQDIEcymSzU0zX2uOKE="
+
+before_install:
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
 addons:
   coverity_scan:
     project:
-      name: "Buggy code"
-      description: "Bug bounty"
-    build_command:   "make buggy"
+      name: "christianix/buggy"
+      description: "Coverity Bug-Test"
+    notification_email: martin@christianix.de
+    build_command_prepend: ""
+    build_command: "make buggy"
+    branch_pattern: coverity_scan
