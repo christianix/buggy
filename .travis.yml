@@ -1,12 +1,10 @@
-language: c
-script: make buggy
-
 env:
   global:
-   - secure: "oy2nVEe5nE1Fgt5Zzb9HNpN1k6HJ6Z5hwqbMEdwlq1TIpry+MWNDtTyUFQncuqIdsaC6sgCIRdn8VvYmpBfdL5usaZsBF5j2s8mGsJByzkptfP7wNYMqjJR4/5tmq8fD6olGH/E+6W/4kidjEb7au6oaO593A4uVK/IlWjaar7QbM7xbfNdrHh65Lo1qB0YVaNe3d+90d9vHuUdNyHAraa23plK1XRo0gO+VF+oyb5KAuj25iqM0XJH9FQafud/28uyiY2J035sd6E+zCIsmssSJhch4Zcu/cBqYDTJbtlVA8q49zHLuuSULp44/JVlXL4PrVuL7PzrJi+IQPReaEli5JtubESLY4lsTgNHlG3Ad5YBjxX65RFtYpqaamJeBsPyKLliNf4NlmhP3ytutTJsEqEPxDhAtblrFVDFzBEL50XzzEzyacmW6aD2KwJPy16dRm+S8MLfw8UD/+jp8Qrca4+pUQVQt2hLX+l7TW0rRnGKqJBkjxOeD9uGyoSoQRkVqfmk+XC6zp5EKKHXH2/vgBXFoxJMd6u2Q/r6oPU5c2LFxictdbPctVO1H92DIqJCZOLXHZQLZkDjdch4VJZOre6ouWLDYhSdWeKv5Pznc2tl4cWmRRcHAibaoWPpRf/uefR6AEryQIerA7qBhozD/8nYPGSM2TwwB+JO5Qq8="
+   - secure: "AJcOHiXUvMJYMWDFgZzSkLxO3p8t4+U71W4enPPELDTDux1Hm5Cu8sZrEno0Uo23se10heXZlTVcqqyrxMPlcW872tDDj5OP8llgeRxEBvv031ag2wfgkR9z80hwUOxZy7jRr5fMmOsWUXoLX+ia+SCI22d0S0h9c/kRQQs5uZtPaKiVmVcgqN+0x+BETnP1a83G/UoiAZxqFeOAzhjpfQg5SA0j/bvsCSLSq8kS/rMoIDX2uUuFVNJ8R48k7cBy/tT2JfOAP7ZFcoy9EH+H0DhEsFklJ9Cbm5tUwd/SJfStyQd/68qUcVqb749CNKLkCXd2XoV8df2iwTbBK5vYI7RXaB/XAu/kj8UtB7GjeLLkmnkZGo7XowZ7nghHR4xqUW0BYB0CtgeC9lRp5FXvYIkiaoYnMLWqGZWdqvTfpcGwZyPrcncUIi6BA2mH2CdRr0c1XbdIEqptBhvE+YguRfj1ClTVCQhpyYIQ1VuB4C9iD3w6ekuprSG6jP8rOF2yBnDdX3r2XiSSEqMEBM1TmxdVsA6EtaDnRdgt0DQwuImxVzRumMXi81MLU8pEEt8gTE8tfqO4FUwiKp9DLPj450b7eKa6qLbAJHPV//rv4xnnaz8AEsUuEPPPY02RX/mDhlgH963VXXvIfWkylJoA/25iMg4Lh9oOGGeuGZRmfmA="
+
 
 before_install:
-  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 addons:
   coverity_scan:
@@ -14,6 +12,5 @@ addons:
       name: "christianix/buggy"
       description: "Coverity Bug-Test"
     notification_email: martin@christianix.de
-    build_command_prepend: ""
     build_command: "make buggy"
-    branch_pattern: master
+    branch_pattern: coverity_scan
