@@ -1,19 +1,2 @@
 language: c
 script: make buggy
-
-env:
-  global:
-   - secure: "oy2nVEe5nE1Fgt5Zzb9HNpN1k6HJ6Z5hwqbMEdwlq1TIpry+MWNDtTyUFQncuqIdsaC6sgCIRdn8VvYmpBfdL5usaZsBF5j2s8mGsJByzkptfP7wNYMqjJR4/5tmq8fD6olGH/E+6W/4kidjEb7au6oaO593A4uVK/IlWjaar7QbM7xbfNdrHh65Lo1qB0YVaNe3d+90d9vHuUdNyHAraa23plK1XRo0gO+VF+oyb5KAuj25iqM0XJH9FQafud/28uyiY2J035sd6E+zCIsmssSJhch4Zcu/cBqYDTJbtlVA8q49zHLuuSULp44/JVlXL4PrVuL7PzrJi+IQPReaEli5JtubESLY4lsTgNHlG3Ad5YBjxX65RFtYpqaamJeBsPyKLliNf4NlmhP3ytutTJsEqEPxDhAtblrFVDFzBEL50XzzEzyacmW6aD2KwJPy16dRm+S8MLfw8UD/+jp8Qrca4+pUQVQt2hLX+l7TW0rRnGKqJBkjxOeD9uGyoSoQRkVqfmk+XC6zp5EKKHXH2/vgBXFoxJMd6u2Q/r6oPU5c2LFxictdbPctVO1H92DIqJCZOLXHZQLZkDjdch4VJZOre6ouWLDYhSdWeKv5Pznc2tl4cWmRRcHAibaoWPpRf/uefR6AEryQIerA7qBhozD/8nYPGSM2TwwB+JO5Qq8="
-
-before_install:
-  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
-
-addons:
-  coverity_scan:
-    project:
-      name: "christianix/buggy"
-      description: "Coverity Bug-Test"
-    notification_email: martin@christianix.de
-    build_command_prepend: ""
-    build_command: "make buggy"
-    branch_pattern: master
