@@ -3,7 +3,7 @@ script: make buggy
 
 env:
   global:
-   - secure: "oy2nVEe5nE1Fgt5Zzb9HNpN1k6HJ6Z5hwqbMEdwlq1TIpry+MWNDtTyUFQncuqIdsaC6sgCIRdn8VvYmpBfdL5usaZsBF5j2s8mGsJByzkptfP7wNYMqjJR4/5tmq8fD6olGH/E+6W/4kidjEb7au6oaO593A4uVK/IlWjaar7QbM7xbfNdrHh65Lo1qB0YVaNe3d+90d9vHuUdNyHAraa23plK1XRo0gO+VF+oyb5KAuj25iqM0XJH9FQafud/28uyiY2J035sd6E+zCIsmssSJhch4Zcu/cBqYDTJbtlVA8q49zHLuuSULp44/JVlXL4PrVuL7PzrJi+IQPReaEli5JtubESLY4lsTgNHlG3Ad5YBjxX65RFtYpqaamJeBsPyKLliNf4NlmhP3ytutTJsEqEPxDhAtblrFVDFzBEL50XzzEzyacmW6aD2KwJPy16dRm+S8MLfw8UD/+jp8Qrca4+pUQVQt2hLX+l7TW0rRnGKqJBkjxOeD9uGyoSoQRkVqfmk+XC6zp5EKKHXH2/vgBXFoxJMd6u2Q/r6oPU5c2LFxictdbPctVO1H92DIqJCZOLXHZQLZkDjdch4VJZOre6ouWLDYhSdWeKv5Pznc2tl4cWmRRcHAibaoWPpRf/uefR6AEryQIerA7qBhozD/8nYPGSM2TwwB+JO5Qq8="
+   - secure: "lagBw4+5BysRtrvUZpwhU6lRDGz8VBy1Pvp8x/lM9k5zE51JAozbZhdrU7Z7IFiz7/z5loEcvZIwtXuDBqrdH1tNqOfCf9eW1aa3AHwq/aDDRvpMzByNqec7JyV5LhCj5XIJ6CKtuXAcfm0dcvZyySDy2AIZGM005ALHb6lZY1UFOmzQ/nAF2Y6BYxZK8HSshgo6au4izIKfFo4tnwTWilT5TAEUJKSrvy2D4Ecd9DXzzLluQWsnLPJ1CfXCptFm89tQHl3YDeiKWCq8cvLTcAfn5l5ksPSshXIRMt5DXFo2knOTXwYP62NF39zG0/JRXkWU21nCVW/amnkIESOuK7RPobpQUhBegg3orn04cY7KOMyQqCwuZtx1SG61tVhmNU3BztIbYm+x9g6RCexIs9KZqWUBguwPsZS57WvLuCiJ/t5/6fprmhXfwt3vTxH/hnGQ8+3UiFiL29ASi+opFTGgVBgeM5Dbg5WGhUHrp8acx7u2Qq2WVAfJuzyghXacBJO/sfWsaunxIkwuzyWFrOIagNwnAp09WiFCrQGiIoPz1D4CCpKl2YeRlVtHo6B6x9dBPh8ppqJcqj3/oiLed15wS0SZkZTKLcoq7hzhr5Jm2X15AfdcvpUm6zG8BvAkyF2CqlHwRuk6lNcgm6nPZwHMX57s1lTngrgwyboo4Vs="
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
@@ -16,4 +16,4 @@ addons:
     notification_email: martin@christianix.de
     build_command_prepend: ""
     build_command: "make buggy"
-    branch_pattern: master
+    branch_pattern: coverity_scan
