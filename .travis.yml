@@ -6,7 +6,7 @@ env:
    - secure: "lagBw4+5BysRtrvUZpwhU6lRDGz8VBy1Pvp8x/lM9k5zE51JAozbZhdrU7Z7IFiz7/z5loEcvZIwtXuDBqrdH1tNqOfCf9eW1aa3AHwq/aDDRvpMzByNqec7JyV5LhCj5XIJ6CKtuXAcfm0dcvZyySDy2AIZGM005ALHb6lZY1UFOmzQ/nAF2Y6BYxZK8HSshgo6au4izIKfFo4tnwTWilT5TAEUJKSrvy2D4Ecd9DXzzLluQWsnLPJ1CfXCptFm89tQHl3YDeiKWCq8cvLTcAfn5l5ksPSshXIRMt5DXFo2knOTXwYP62NF39zG0/JRXkWU21nCVW/amnkIESOuK7RPobpQUhBegg3orn04cY7KOMyQqCwuZtx1SG61tVhmNU3BztIbYm+x9g6RCexIs9KZqWUBguwPsZS57WvLuCiJ/t5/6fprmhXfwt3vTxH/hnGQ8+3UiFiL29ASi+opFTGgVBgeM5Dbg5WGhUHrp8acx7u2Qq2WVAfJuzyghXacBJO/sfWsaunxIkwuzyWFrOIagNwnAp09WiFCrQGiIoPz1D4CCpKl2YeRlVtHo6B6x9dBPh8ppqJcqj3/oiLed15wS0SZkZTKLcoq7hzhr5Jm2X15AfdcvpUm6zG8BvAkyF2CqlHwRuk6lNcgm6nPZwHMX57s1lTngrgwyboo4Vs="
 
 before_install:
-  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 addons:
   coverity_scan:
