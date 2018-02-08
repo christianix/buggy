@@ -3,9 +3,7 @@ script: make buggy
 
 env:
   global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
-   - secure: "OHNuaWPkDwWafqCsJGjv7WhzVxymqzloHnh8l2YjMi7INAnI04tztrYfdSUx8VcjVyVdjrGQAsepkRMrMWc+0uDj6Q90kJhhUjG2cKE42eRFTPqSpAOTg4w9HUL/Ont49PpWN6s5CfABirVOhMYRTKDzAijTEG/cc/qc4sZFVv/yIv8bOp0YujthjGF0Z25fE/KmDVqKR9ho30sUmLVd5e8TbMFYYMguE4QHkskdpsrCUQKb8AC8witWI7P0E0qVMUfofpaMyH/gBpEDJ2ObeNJ5J3gW99cxFlNXVyMgdKEPL1qbVXhZp6RQBRAfdviMn8QRSPnCk6mU3OQWsDdL6PxeMjmOej5k/Nq2hasmh5RaOsipQqjrZpOB1apeY6VXWIG0eNeUSIJjKxQd0Jw/fb/vt3STKx9pdN37S6PohvO2fxL9mgH/7BNk8gmQP2vwrdO3si6/HtH6e4XPpMl5/ApCthe+enVTh55yLxLSYNW5SymIJ1g5rT9icsrtdbCS7xj9v6ug1q6XID8gHNuOtrhEnl0+Rf5kfk/XRCC7ZgRSFHssGmOeiU3kgz+106JNQpTvsyS0PHoStzDmo6T9EHit5djqYqfTHYqebJOYfCMpvhaE0ZvbEQ+SXmDmkhJ5lO7x85tfNzj7m3dwBmK++0QogQDIEcymSzU0zX2uOKE="
+   - secure: "oy2nVEe5nE1Fgt5Zzb9HNpN1k6HJ6Z5hwqbMEdwlq1TIpry+MWNDtTyUFQncuqIdsaC6sgCIRdn8VvYmpBfdL5usaZsBF5j2s8mGsJByzkptfP7wNYMqjJR4/5tmq8fD6olGH/E+6W/4kidjEb7au6oaO593A4uVK/IlWjaar7QbM7xbfNdrHh65Lo1qB0YVaNe3d+90d9vHuUdNyHAraa23plK1XRo0gO+VF+oyb5KAuj25iqM0XJH9FQafud/28uyiY2J035sd6E+zCIsmssSJhch4Zcu/cBqYDTJbtlVA8q49zHLuuSULp44/JVlXL4PrVuL7PzrJi+IQPReaEli5JtubESLY4lsTgNHlG3Ad5YBjxX65RFtYpqaamJeBsPyKLliNf4NlmhP3ytutTJsEqEPxDhAtblrFVDFzBEL50XzzEzyacmW6aD2KwJPy16dRm+S8MLfw8UD/+jp8Qrca4+pUQVQt2hLX+l7TW0rRnGKqJBkjxOeD9uGyoSoQRkVqfmk+XC6zp5EKKHXH2/vgBXFoxJMd6u2Q/r6oPU5c2LFxictdbPctVO1H92DIqJCZOLXHZQLZkDjdch4VJZOre6ouWLDYhSdWeKv5Pznc2tl4cWmRRcHAibaoWPpRf/uefR6AEryQIerA7qBhozD/8nYPGSM2TwwB+JO5Qq8="
 
 before_install:
   - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
