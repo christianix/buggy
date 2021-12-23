@@ -15,3 +15,4 @@ addons:
     build_command_prepend:
     build_command: "make buggy"
     branch_pattern: coverity_scan
+script: make buggy
